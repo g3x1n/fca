@@ -1,0 +1,4 @@
+/build/
+__pycache__/
+*.key
+.DS_Store

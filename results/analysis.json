@@ -1,0 +1,287 @@
+{
+  "default_sizes": {
+    "block_bytes": 521184,
+    "tag_bytes": 23,
+    "fca_request_bytes": 56,
+    "explicit_request_bytes_at_688": 18600,
+    "proof_bytes": 521231,
+    "cache_elements": {
+      "fca_t1": 430,
+      "dense": 23424,
+      "polynomial": 1,
+      "fca_t2": 860
+    },
+    "fca_t1_cache_reduction": 54.47441860465116
+  },
+  "security_bounds": {
+    "dense": {
+      "one_query_bits": 178.0,
+      "Qv_2pow32_bits": 146.0,
+      "Qv_2pow32_vs_2pow_minus146": "equal"
+    },
+    "polynomial": {
+      "one_query_bits": 163.48430016171596,
+      "Qv_2pow32_bits": 131.48430016171596,
+      "Qv_2pow32_vs_2pow_minus146": "above"
+    },
+    "fca_t1": {
+      "one_query_bits": 177.0,
+      "Qv_2pow32_bits": 145.0,
+      "Qv_2pow32_vs_2pow_minus146": "above"
+    },
+    "fca_t2": {
+      "one_query_bits": 178.0,
+      "Qv_2pow32_bits": 146.0,
+      "Qv_2pow32_vs_2pow_minus146": "above"
+    }
+  },
+  "sampling": [
+    {
+      "m": 10000,
+      "bad": 10,
+      "c": 128,
+      "exact": 0.8790753677487245
+    },
+    {
+      "m": 10000,
+      "bad": 100,
+      "c": 128,
+      "exact": 0.27397349533254595,
+      "misses": 27470,
+      "trials": 100000,
+      "empirical": 0.2747,
+      "wilson_95": [
+        0.27194215849671705,
+        0.277475150451813
+      ]
+    },
+    {
+      "m": 10000,
+      "bad": 1000,
+      "c": 128,
+      "exact": 1.269007216762468e-06
+    },
+    {
+      "m": 10000,
+      "bad": 10,
+      "c": 256,
+      "exact": 0.7714741431461989
+    },
+    {
+      "m": 10000,
+      "bad": 100,
+      "c": 256,
+      "exact": 0.07379744311136537,
+      "misses": 7372,
+      "trials": 100000,
+      "empirical": 0.07372,
+      "wilson_95": [
+        0.07211670767242362,
+        0.07535604181084019
+      ]
+    },
+    {
+      "m": 10000,
+      "bad": 1000,
+      "c": 256,
+      "exact": 1.3356350810881932e-12
+    },
+    {
+      "m": 10000,
+      "bad": 10,
+      "c": 688,
+      "exact": 0.4901005461106179
+    },
+    {
+      "m": 10000,
+      "bad": 100,
+      "c": 688,
+      "exact": 0.0007732208182057513,
+      "misses": 61,
+      "trials": 100000,
+      "empirical": 0.00061,
+      "wilson_95": [
+        0.0004749570000009599,
+        0.0007834092485847263
+      ]
+    },
+    {
+      "m": 10000,
+      "bad": 1000,
+      "c": 688,
+      "exact": 2.0896966139603666e-33
+    }
+  ],
+  "version_models": [
+    {
+      "versions": 1,
+      "fca_shared_24byte_state": 10320,
+      "dense_per_file_24byte_state": 562176,
+      "dense_shared_24byte_state": 562176,
+      "polynomial_per_file_24byte_state": 24
+    },
+    {
+      "versions": 32,
+      "fca_shared_24byte_state": 10320,
+      "dense_per_file_24byte_state": 17989632,
+      "dense_shared_24byte_state": 562176,
+      "polynomial_per_file_24byte_state": 768
+    },
+    {
+      "versions": 1024,
+      "fca_shared_24byte_state": 10320,
+      "dense_per_file_24byte_state": 575668224,
+      "dense_shared_24byte_state": 562176,
+      "polynomial_per_file_24byte_state": 24576
+    }
+  ],
+  "bandwidth_model": [
+    {
+      "variant": "fca_unified",
+      "mbps": 10,
+      "local_ms": 432.329675,
+      "paper_rtt_ms": 9.6,
+      "modeled_total_ms": 858.959275
+    },
+    {
+      "variant": "fca_unified",
+      "mbps": 25,
+      "local_ms": 432.329675,
+      "paper_rtt_ms": 9.6,
+      "modeled_total_ms": 608.741515
+    },
+    {
+      "variant": "fca_unified",
+      "mbps": 50,
+      "local_ms": 432.329675,
+      "paper_rtt_ms": 9.6,
+      "modeled_total_ms": 525.335595
+    },
+    {
+      "variant": "fca_unified",
+      "mbps": 100,
+      "local_ms": 432.329675,
+      "paper_rtt_ms": 9.6,
+      "modeled_total_ms": 483.63263500000005
+    },
+    {
+      "variant": "fca_unified",
+      "mbps": 200,
+      "local_ms": 432.329675,
+      "paper_rtt_ms": 9.6,
+      "modeled_total_ms": 462.781155
+    },
+    {
+      "variant": "fca_unified",
+      "mbps": 480,
+      "local_ms": 432.329675,
+      "paper_rtt_ms": 9.6,
+      "modeled_total_ms": 450.6177916666667
+    },
+    {
+      "variant": "fca_unified",
+      "mbps": 1000,
+      "local_ms": 432.329675,
+      "paper_rtt_ms": 9.6,
+      "modeled_total_ms": 446.09997100000004
+    },
+    {
+      "variant": "dense",
+      "mbps": 10,
+      "local_ms": 432.7971065,
+      "paper_rtt_ms": 9.6,
+      "modeled_total_ms": 874.2619065
+    },
+    {
+      "variant": "dense",
+      "mbps": 25,
+      "local_ms": 432.7971065,
+      "paper_rtt_ms": 9.6,
+      "modeled_total_ms": 615.1430265
+    },
+    {
+      "variant": "dense",
+      "mbps": 50,
+      "local_ms": 432.7971065,
+      "paper_rtt_ms": 9.6,
+      "modeled_total_ms": 528.7700665
+    },
+    {
+      "variant": "dense",
+      "mbps": 100,
+      "local_ms": 432.7971065,
+      "paper_rtt_ms": 9.6,
+      "modeled_total_ms": 485.5835865
+    },
+    {
+      "variant": "dense",
+      "mbps": 200,
+      "local_ms": 432.7971065,
+      "paper_rtt_ms": 9.6,
+      "modeled_total_ms": 463.9903465
+    },
+    {
+      "variant": "dense",
+      "mbps": 480,
+      "local_ms": 432.7971065,
+      "paper_rtt_ms": 9.6,
+      "modeled_total_ms": 451.39428983333335
+    },
+    {
+      "variant": "dense",
+      "mbps": 1000,
+      "local_ms": 432.7971065,
+      "paper_rtt_ms": 9.6,
+      "modeled_total_ms": 446.7157545
+    },
+    {
+      "variant": "polynomial",
+      "mbps": 10,
+      "local_ms": 432.8926315,
+      "paper_rtt_ms": 9.6,
+      "modeled_total_ms": 874.3574315000001
+    },
+    {
+      "variant": "polynomial",
+      "mbps": 25,
+      "local_ms": 432.8926315,
+      "paper_rtt_ms": 9.6,
+      "modeled_total_ms": 615.2385515000001
+    },
+    {
+      "variant": "polynomial",
+      "mbps": 50,
+      "local_ms": 432.8926315,
+      "paper_rtt_ms": 9.6,
+      "modeled_total_ms": 528.8655915
+    },
+    {
+      "variant": "polynomial",
+      "mbps": 100,
+      "local_ms": 432.8926315,
+      "paper_rtt_ms": 9.6,
+      "modeled_total_ms": 485.67911150000003
+    },
+    {
+      "variant": "polynomial",
+      "mbps": 200,
+      "local_ms": 432.8926315,
+      "paper_rtt_ms": 9.6,
+      "modeled_total_ms": 464.0858715
+    },
+    {
+      "variant": "polynomial",
+      "mbps": 480,
+      "local_ms": 432.8926315,
+      "paper_rtt_ms": 9.6,
+      "modeled_total_ms": 451.48981483333336
+    },
+    {
+      "variant": "polynomial",
+      "mbps": 1000,
+      "local_ms": 432.8926315,
+      "paper_rtt_ms": 9.6,
+      "modeled_total_ms": 446.8112795
+    }
+  ]
+}

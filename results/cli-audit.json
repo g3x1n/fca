@@ -1,0 +1,18 @@
+{
+  "dataset_bytes": 1074160224,
+  "blocks": 2061,
+  "samples": 688,
+  "request_bytes": 56,
+  "response_bytes": 521231,
+  "honest": "ACCEPT",
+  "replay_in_another_round": "REJECT",
+  "elapsed_ms": {
+    "keygen": 9.716,
+    "prepare": 1565.189,
+    "challenge": 4.889,
+    "prove": 446.5,
+    "verify": 6.85,
+    "next_challenge": 4.077,
+    "replay_verify": 4.257
+  }
+}
