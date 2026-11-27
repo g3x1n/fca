@@ -1,6 +1,8 @@
-# FCA 本地复现
+# FCA — Factorized Cyclotomic Authentication
 
-复现 Wan、Lv、Ge 的论文 *FCA: Private Cloud Storage Auditing with Factorized Cyclotomic Authentication*。C++20 实现用两个本地角色模拟数据所有者和存储服务器。所有报文经本地文件交换。论文原件位于工作区上一级目录。
+Official C++20 implementation accompanying *FCA: Private Cloud Storage Auditing with Factorized Cyclotomic Authentication* by Zuhui Wan, Chunli Lv, and Xinjin Ge. It includes a local auditing CLI, correctness tests, and benchmarks for FCA and the dense and polynomial baselines.
+
+本实现通过本地文件在数据所有者和存储服务器两个角色之间交换审计报文。
 
 ## 构建与测试
 
@@ -32,7 +34,7 @@ build/fca verify "$tmp/owner/master.key" "$tmp/owner/file.meta" "$tmp/request.bi
 - 默认 `p=179, ℓ=366, w=64, t=1`，每块 521,184 B，末块补零。空文件表示为一个全零块。默认抽取 `min(688, m)` 个块，`--samples C` 可在准备文件时指定抽样数。
 - 两个快照用同一个主密钥和 `--scope $(build/fca scope)` 生成的同一 scope 值，分别保存到新的目录和元数据文件。不同 FID 的文件掩码独立派生。C++ 库允许跨版本共享同一个内存中的 `Authenticator`，单独运行的 CLI 进程会从根密钥重新派生同一组因子。
 - 有限域支持满足 `ord_p(2)=p−1` 且 `p ≤ 251` 的素数。`prepare` 支持 `--prime P --columns L --width W --branches T`，文件模式的字宽须为 8 的倍数，内存 API 同时支持 1–64 位字宽。
-- 认证计算参考论文式 (2)、(5)–(7)，标签和挑战至验证分别对应算法 2–4。线性基线使用各自独立派生的密集系数或 Horner 求值，共用掩码和聚合流程。
+- 认证和审计流程见论文第三节。线性基线使用各自独立派生的密集系数或 Horner 求值，共用掩码和聚合流程。
 - 参数与记录采用小端编码，字段使用 `ceil((p−1)/8)` 字节，禁止非零填充位。块按列、再按行编码，每个字内部按小端放置。请求为 `FID[16] || round[8] || seed[32]`，响应为 `FID[16] || round[8] || aggregate_block || aggregate_tag`。HMAC-SHA256 的域标签、索引基数和报文编码为本项目的具体化。
 
 这是静态文件完整性实验。抽样命中发生变更的块、聚合偏差未抵消且认证值未发生碰撞时，审计会发现局部变更。实现使用按因子置位枚举的卷积，适用范围是这里的本地复现实验。
@@ -46,4 +48,8 @@ build/fca-bench "$tmp/scaling.bin" 2061 10 16 128 256 512 1024 2048 2061 > resul
 python3 scripts/analyze.py > results/analysis.json
 ```
 
-`fca-bench` 依次接受新合成文件路径、总块数、每个抽样大小的轮数、每轮标签计时的块数及一个或多个抽样大小。两条完整基准各产生约 1 GiB 本地临时数据。基准专用的随机输入、密钥和种子固定以便重跑。详细计时边界、原论文对照及本机结果见 [实验报告](results/REPORT.md)。
+`fca-bench` 依次接受新合成文件路径、总块数、每个抽样大小的轮数、每轮标签计时的块数及一个或多个抽样大小。两条完整基准各产生约 1 GiB 本地临时数据。基准专用的随机输入、密钥和种子固定以便重跑。详细计时边界和早期复现结果见 [实验报告](results/REPORT.md)。
+
+## License
+
+This implementation is available under the [MIT License](LICENSE).

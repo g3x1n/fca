@@ -1,5 +1,7 @@
 # FCA 本地复现实验报告
 
+这份记录对应早期稿件的本地复现。文中的论文对照值、图表和算法编号沿用当时的稿件。
+
 ## 设置
 
 论文参考 Wan、Lv、Ge 的 *FCA: Private Cloud Storage Auditing with Factorized Cyclotomic Authentication*，第 III–V 节、图 2–4、表 I–II。实验在 Apple M5 Pro（arm64、24 GB RAM、macOS 27.2）上运行，使用 Apple clang 21.0.0、C++20 `-O3 -march=native` 和 OpenSSL 3.6.4。所有读写及协议交换使用本地文件。
