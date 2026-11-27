@@ -50,6 +50,19 @@ python3 scripts/analyze.py > results/analysis.json
 
 `fca-bench` takes the path for a new synthetic input file, the total block count, the number of trials per challenge size, the number of blocks timed for tag generation per trial, and one or more challenge sizes. Each benchmark command above writes approximately 1 GiB of temporary input. The benchmark uses fixed seed material for the synthetic input, keys, and audit seeds. See the [experiment report (Chinese)](results/REPORT.md) for timing definitions and results from the initial reproduction.
 
+## Reproduce manuscript Figures 2–4
+
+From the repository root, use the included plotting data to redraw the figures. The pinned plotting dependencies were tested with Python 3.9.6.
+
+```sh
+python3 -m venv build/plot-venv
+. build/plot-venv/bin/activate
+python -m pip install -r experiments/requirements.txt
+python experiments/plot_manuscript_figures.py
+```
+
+The script writes `fig2`, `fig3`, and `fig4` as PDF and PNG files under `build/manuscript-figures/`. See the [figure reproduction guide](experiments/README.md) for commands to rerun the experiments and regenerate the plotting CSVs.
+
 ## License
 
 This implementation is available under the [MIT License](LICENSE).
